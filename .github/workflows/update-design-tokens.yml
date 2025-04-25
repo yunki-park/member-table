@@ -28,8 +28,8 @@ jobs:
 
       - name: Commit generated design tokens
         run: |
-          git config user.name 'github-actions[bot]'
-          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git config user.name github-actions[bot]
+          git config user.email github-actions[bot]@users.noreply.github.com
           git add src/styles/design-tokens.ts
-          git commit -m '[chore] auto-update design tokens'
-          git push
+          git commit -m 'chore: auto-update design tokens' || echo "No changes to commit"
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:main
