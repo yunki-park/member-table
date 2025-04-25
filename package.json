@@ -5,6 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:local": "cross-env VITE_STORAGE=local-storage vite",
+    "dev:memory": "cross-env VITE_STORAGE=in-memory vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"

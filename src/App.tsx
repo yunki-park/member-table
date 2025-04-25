@@ -1,35 +1,34 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useRecordStorage } from './hooks/useRecordStorage';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const { records, save } = useRecordStorage();
+
+  const handleAddRecord = () => {
+    const newRecord = [
+      ...records,
+      {
+        name: '박윤기',
+        address: '서울시 용산구',
+        memo: '프론트엔드 지원자',
+        joinDate: '2025-04-25',
+        job: '개발자',
+        agreeToEmail: false,
+      },
+    ];
+    save(newRecord);
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div>
+      <button onClick={handleAddRecord}>레코드 추가</button>
+
+      <ul>
+        {records.map((record, idx) => (
+          <li key={idx}>{record.name}</li>
+        ))}
+      </ul>
+    </div>
+  );
 }
 
-export default App
+export default App;
