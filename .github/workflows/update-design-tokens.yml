@@ -24,7 +24,7 @@ jobs:
         run: npm install
 
       - name: Convert tokens.json to design-tokens.ts
-        run: node scripts/convert-tokens.js
+        run: node scripts/convert-tokens.cjs
 
       - name: Commit generated design tokens
         run: |

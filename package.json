@@ -12,7 +12,7 @@
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "generate:tokens": "node scripts/convert-tokens.js"
+    "generate:tokens": "node scripts/convert-tokens.cjs"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
