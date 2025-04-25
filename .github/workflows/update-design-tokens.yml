@@ -1,0 +1,35 @@
+name: Update Design Tokens
+
+on:
+  push:
+    paths:
+      - 'tokens/**'
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Convert tokens.json to design-tokens.ts
+        run: node scripts/convert-tokens.js
+
+      - name: Commit generated design tokens
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add src/styles/design-tokens.ts
+          git commit -m '[chore] auto-update design tokens'
+          git push
