@@ -1,0 +1,130 @@
+// Auto-generated from tokens.json. DO NOT EDIT MANUALLY.
+
+export const designTokens = {
+  paddingSM: {
+    value: 'undefined',
+    type: 'undefined',
+  },
+  borderRadius: {
+    value: 'undefined',
+    type: 'undefined',
+  },
+  Input: {
+    controlPaddingHorizontal: '12',
+    colorBgContainer: '#ffffff',
+    colorBorder: '#e3e3e3',
+    colorTextPlaceholder: '#00000040',
+    colorPrimary: '#4a7cfe',
+    colorText: '#000000e0',
+    colorError: '#ff4d4f',
+  },
+  borderRadiusLG: {
+    value: 'undefined',
+    type: 'undefined',
+  },
+  DatePicker: {
+    marginXXS: '4',
+    controlPaddingHorizontal: '12',
+    contorlHeight: '32',
+    colorTextDisabled: '#00000040',
+    colorBorder: '#e3e3e3',
+    colorBgContainer: '#ffffff',
+    colorPrimary: '#4a7cfe',
+    colorText: '#000000e0',
+    colorBgElevated: '#ffffff',
+    colorSplit: '#0000000f',
+    colorTextDescription: '#00000073',
+    colorTextLightSolid: '#ffffff',
+  },
+  Checkbox: {
+    marginXS: '8',
+    colorBorder: '#e3e3e3',
+    colorBgContainer: '#ffffff',
+    colorWhite: '#ffffff',
+    colorPrimary: '#4a7cfe',
+    colorText: '#000000e0',
+    colorTextDisabled: '#00000040',
+  },
+  Dropdown: {
+    paddingXXS: '4',
+    borderRadiusLG: '10',
+    borderRadiusSM: '6',
+    controlHeight: '32',
+    marginXS: '8',
+    controlPaddingHorizontal: '12',
+    colorBgElevated: '#ffffff',
+    colorText: '#000000e0',
+    colorPrimary: '#4a7cfe',
+    contrlItemBgActive: '#f0f7ff',
+    controlItemBgHover: '#0000000a',
+    controlItemBgActive: '#f0f7ff',
+    colorError: '#ff4d4f',
+  },
+  Table: {
+    paddingXS: '8',
+    borderRadiusLG: '10',
+    colorSplit: '#0000000f',
+    colorText: '#000000e0',
+    colorTextDisabled: '#00000040',
+    colorBgContainer: '#ffffff',
+    colorFillAlter: '#00000005',
+  },
+  Transfer: {
+    controlHeight: '32',
+    PaddingSM: '12',
+    controlItemBgActive: '#f0f7ff',
+    controlItemBgHover: '#0000000a',
+  },
+  Modal: {
+    borderRadiusLG: '10',
+    paddingContentHorizontalLG: '24',
+    colorText: '#000000e0',
+  },
+  colorTextSecondary: {
+    value: 'undefined',
+    type: 'undefined',
+  },
+  colorBgContainer: {
+    value: 'undefined',
+    type: 'undefined',
+  },
+  colorBgSecondary: {
+    value: 'undefined',
+    type: 'undefined',
+  },
+  colorFillAlter: {
+    value: 'undefined',
+    type: 'undefined',
+  },
+  colorSplit: {
+    value: 'undefined',
+    type: 'undefined',
+  },
+  colorIcon: {
+    value: 'undefined',
+    type: 'undefined',
+  },
+  colorTextTertiary: {
+    value: 'undefined',
+    type: 'undefined',
+  },
+  colorPrimaryBase: {
+    value: 'undefined',
+    type: 'undefined',
+  },
+  Button: {
+    colorPrimary: '#4a7cfe',
+    colorPrimaryHover: '#739fff',
+    colorPrimaryActive: '#345dd9',
+    colorTextLightSolid: '#ffffff',
+    colorBorder: '#e3e3e3',
+    colorBgContainerDisabled: '#0000000a',
+    colorTextDisabled: '#00000040',
+    colorBgTextHover: '#0000000f',
+  },
+  Divider: {
+    colorSplit: '#0000000f',
+  },
+  T: {
+  },
+};
