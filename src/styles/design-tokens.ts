@@ -2,12 +2,8 @@
 
 export const designTokens = {
   paddingSM: {
-    value: 'undefined',
-    type: 'undefined',
   },
   borderRadius: {
-    value: 'undefined',
-    type: 'undefined',
   },
   Input: {
     controlPaddingHorizontal: '12',
@@ -19,8 +15,6 @@ export const designTokens = {
     colorError: '#ff4d4f',
   },
   borderRadiusLG: {
-    value: 'undefined',
-    type: 'undefined',
   },
   DatePicker: {
     marginXXS: '4',
@@ -81,36 +75,20 @@ export const designTokens = {
     colorText: '#000000e0',
   },
   colorTextSecondary: {
-    value: 'undefined',
-    type: 'undefined',
   },
   colorBgContainer: {
-    value: 'undefined',
-    type: 'undefined',
   },
   colorBgSecondary: {
-    value: 'undefined',
-    type: 'undefined',
   },
   colorFillAlter: {
-    value: 'undefined',
-    type: 'undefined',
   },
   colorSplit: {
-    value: 'undefined',
-    type: 'undefined',
   },
   colorIcon: {
-    value: 'undefined',
-    type: 'undefined',
   },
   colorTextTertiary: {
-    value: 'undefined',
-    type: 'undefined',
   },
   colorPrimaryBase: {
-    value: 'undefined',
-    type: 'undefined',
   },
   Button: {
     colorPrimary: '#4a7cfe',

@@ -1,62 +1,41 @@
 const fs = require('fs');
 const path = require('path');
 
-// 들여쓰기 단위
-const INDENT = '  '; // 2칸
-
 // tokens.json 읽기
 const tokens = JSON.parse(
   fs.readFileSync(path.resolve(__dirname, '../tokens/tokens.json'), 'utf-8'),
 );
 
-// 변환할 문자열 만들기
-const output = [
-  '// Auto-generated from tokens.json. DO NOT EDIT MANUALLY.',
-  '',
-  'export const designTokens = {',
-];
+// 토큰 구조를 재귀적으로 변환하는 함수
+function flattenTokens(obj) {
+  const result = {};
 
-// 들여쓰기 유틸 함수
-function indent(level) {
-  return INDENT.repeat(level);
-}
-
-// tokens 객체를 순회하며 변환
-for (const [groupName, groupTokens] of Object.entries(tokens)) {
-  output.push(`${indent(1)}${groupName}: {`);
-
-  for (const [tokenName, tokenValue] of Object.entries(groupTokens)) {
-    if (
-      typeof tokenValue === 'object' &&
-      'value' in tokenValue &&
-      'type' in tokenValue
-    ) {
-      output.push(`${indent(2)}${tokenName}: '${tokenValue.value}',`);
-    } else if (typeof tokenValue === 'object') {
-      output.push(`${indent(2)}${tokenName}: {`);
-      for (const [nestedName, nestedValue] of Object.entries(tokenValue)) {
-        if (
-          typeof nestedValue === 'object' &&
-          'value' in nestedValue &&
-          'type' in nestedValue
-        ) {
-          output.push(`${indent(3)}${nestedName}: '${nestedValue.value}',`);
-        }
-      }
-      output.push(`${indent(2)}},`);
+  for (const [key, value] of Object.entries(obj)) {
+    if (value && typeof value.value !== 'undefined') {
+      // 실제 값이 있는 경우
+      result[key] = value.value;
+    } else if (typeof value === 'object' && value !== null) {
+      // 또 다른 그룹이 있는 경우 (재귀적으로 펼치기)
+      result[key] = flattenTokens(value);
     }
   }
 
-  output.push(`${indent(1)}},`);
+  return result;
 }
 
-output.push('};');
+// 변환한 결과
+const flattened = flattenTokens(tokens);
 
-// 최종 파일 쓰기
+// 변환된 토큰을 TypeScript 파일로 출력
+const output = [
+  '// Auto-generated from tokens.json. DO NOT EDIT MANUALLY.',
+  '',
+  'export const designTokens = ',
+  JSON.stringify(flattened, null, 2) + ';',
+];
+
 const outputPath = path.resolve(__dirname, '../src/styles/design-tokens.ts');
 fs.mkdirSync(path.dirname(outputPath), { recursive: true });
-
-const finalContent = output.join('\n') + '\n';
-fs.writeFileSync(outputPath, finalContent, 'utf-8');
+fs.writeFileSync(outputPath, output.join('\n'));
 
 console.log('design-tokens.ts 생성 완료');
