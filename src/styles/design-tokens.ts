@@ -2,76 +2,6 @@
 
 export const designTokens = 
 {
-  "paddingSM": 12,
-  "borderRadius": 8,
-  "Input": {
-    "controlPaddingHorizontal": 12,
-    "colorBgContainer": "#ffffff",
-    "colorBorder": "#e3e3e3",
-    "colorTextPlaceholder": "#00000040",
-    "colorPrimary": "#4a7cfe",
-    "colorText": "#000000e0",
-    "colorError": "#ff4d4f"
-  },
-  "borderRadiusLG": 10,
-  "DatePicker": {
-    "marginXXS": 4,
-    "controlPaddingHorizontal": 12,
-    "contorlHeight": 32,
-    "colorTextDisabled": "#00000040",
-    "colorBorder": "#e3e3e3",
-    "colorBgContainer": "#ffffff",
-    "colorPrimary": "#4a7cfe",
-    "colorText": "#000000e0",
-    "colorBgElevated": "#ffffff",
-    "colorSplit": "#0000000f",
-    "colorTextDescription": "#00000073",
-    "colorTextLightSolid": "#ffffff"
-  },
-  "Checkbox": {
-    "marginXS": 8,
-    "colorBorder": "#e3e3e3",
-    "colorBgContainer": "#ffffff",
-    "colorWhite": "#ffffff",
-    "colorPrimary": "#4a7cfe",
-    "colorText": "#000000e0",
-    "colorTextDisabled": "#00000040"
-  },
-  "Dropdown": {
-    "paddingXXS": 4,
-    "borderRadiusLG": 10,
-    "borderRadiusSM": 6,
-    "controlHeight": 32,
-    "marginXS": 8,
-    "controlPaddingHorizontal": 12,
-    "colorBgElevated": "#ffffff",
-    "colorText": "#000000e0",
-    "colorPrimary": "#4a7cfe",
-    "contrlItemBgActive": "#f0f7ff",
-    "controlItemBgHover": "#0000000a",
-    "controlItemBgActive": "#f0f7ff",
-    "colorError": "#ff4d4f"
-  },
-  "Table": {
-    "paddingXS": 8,
-    "borderRadiusLG": 10,
-    "colorSplit": "#0000000f",
-    "colorText": "#000000e0",
-    "colorTextDisabled": "#00000040",
-    "colorBgContainer": "#ffffff",
-    "colorFillAlter": "#00000005"
-  },
-  "Transfer": {
-    "controlHeight": 32,
-    "PaddingSM": 12,
-    "controlItemBgActive": "#f0f7ff",
-    "controlItemBgHover": "#0000000a"
-  },
-  "Modal": {
-    "borderRadiusLG": 10,
-    "paddingContentHorizontalLG": 24,
-    "colorText": "#000000e0"
-  },
   "colorTextSecondary": "#000000a6",
   "colorBgContainer": "#ffffff",
   "colorBgSecondary": "#f0f0f0",
@@ -88,9 +18,80 @@ export const designTokens =
     "colorBorder": "#e3e3e3",
     "colorBgContainerDisabled": "#0000000a",
     "colorTextDisabled": "#00000040",
-    "colorBgTextHover": "#0000000f"
+    "colorBgTextHover": "#0000000f",
+    "colorText": "#000000e0"
+  },
+  "Input": {
+    "colorBgContainer": "#ffffff",
+    "colorBorder": "#e3e3e3",
+    "colorTextPlaceholder": "#00000040",
+    "colorPrimary": "#4a7cfe",
+    "colorText": "#000000e0",
+    "colorError": "#ff4d4f",
+    "controlPaddingHorizontal": 12
+  },
+  "DatePicker": {
+    "colorTextDisabled": "#00000040",
+    "colorBorder": "#e3e3e3",
+    "colorBgContainer": "#ffffff",
+    "colorPrimary": "#4a7cfe",
+    "colorText": "#000000e0",
+    "colorBgElevated": "#ffffff",
+    "colorSplit": "#0000000f",
+    "colorTextDescription": "#00000073",
+    "colorTextLightSolid": "#ffffff",
+    "marginXXS": 4,
+    "controlPaddingHorizontal": 12,
+    "contorlHeight": 32
+  },
+  "Checkbox": {
+    "colorBorder": "#e3e3e3",
+    "colorBgContainer": "#ffffff",
+    "colorWhite": "#ffffff",
+    "colorPrimary": "#4a7cfe",
+    "colorText": "#000000e0",
+    "colorTextDisabled": "#00000040",
+    "marginXS": 8
+  },
+  "Dropdown": {
+    "colorBgElevated": "#ffffff",
+    "colorText": "#000000e0",
+    "colorPrimary": "#4a7cfe",
+    "contrlItemBgActive": "#f0f7ff",
+    "controlItemBgHover": "#0000000a",
+    "controlItemBgActive": "#f0f7ff",
+    "colorError": "#ff4d4f",
+    "paddingXXS": 4,
+    "borderRadiusLG": 10,
+    "borderRadiusSM": 6,
+    "controlHeight": 32,
+    "marginXS": 8,
+    "controlPaddingHorizontal": 12
+  },
+  "Table": {
+    "colorSplit": "#0000000f",
+    "colorText": "#000000e0",
+    "colorTextDisabled": "#00000040",
+    "colorBgContainer": "#ffffff",
+    "colorFillAlter": "#00000005",
+    "paddingXS": 8,
+    "borderRadiusLG": 10
   },
   "Divider": {
     "colorSplit": "#0000000f"
-  }
+  },
+  "Transfer": {
+    "controlItemBgActive": "#f0f7ff",
+    "controlItemBgHover": "#0000000a",
+    "controlHeight": 32,
+    "PaddingSM": 12
+  },
+  "Modal": {
+    "colorText": "#000000e0",
+    "borderRadiusLG": 10,
+    "paddingContentHorizontalLG": 24
+  },
+  "paddingSM": 12,
+  "borderRadius": 8,
+  "borderRadiusLG": 10
 };
