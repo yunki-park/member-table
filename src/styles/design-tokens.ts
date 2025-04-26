@@ -125,6 +125,4 @@ export const designTokens = {
   Divider: {
     colorSplit: '#0000000f',
   },
-  T: {
-  },
 };

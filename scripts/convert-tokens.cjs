@@ -55,6 +55,8 @@ output.push('};');
 // 최종 파일 쓰기
 const outputPath = path.resolve(__dirname, '../src/styles/design-tokens.ts');
 fs.mkdirSync(path.dirname(outputPath), { recursive: true });
-fs.writeFileSync(outputPath, output.join('\n'));
+
+const finalContent = output.join('\n') + '\n';
+fs.writeFileSync(outputPath, finalContent, 'utf-8');
 
 console.log('design-tokens.ts 생성 완료');
