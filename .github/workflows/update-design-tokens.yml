@@ -4,8 +4,13 @@ on:
   push:
     paths:
       - 'tokens/**'
+      - 'scripts/convert-tokens.cjs'
     branches:
       - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   build:
