@@ -11,10 +11,10 @@
  *   - checkbox
  *
  * - label: 필드명
- *   - 이름 (name)
+ *   - 이름 (name) [필수]
  *   - 주소 (address)
  *   - 메모 (memo)
- *   - 가입일 (joinDate)
+ *   - 가입일 (joinDate) [필수]
  *   - 직업 (job)
  *   - 이메일 수신 동의 (agreeToEmail)
  *

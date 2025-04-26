@@ -6,9 +6,10 @@ const config: StorybookConfig = {
     {
       name: '@storybook/addon-essentials',
       options: {
-        docs: false,
+        docs: true,
       },
     },
+    '@storybook/addon-docs',
     '@storybook/addon-onboarding',
     '@chromatic-com/storybook',
     '@storybook/experimental-addon-test',
@@ -16,6 +17,9 @@ const config: StorybookConfig = {
   framework: {
     name: '@storybook/react-vite',
     options: {},
+  },
+  docs: {
+    autodocs: 'tag',
   },
 };
 export default config;
