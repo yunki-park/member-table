@@ -1,106 +1,96 @@
 // Auto-generated from tokens.json. DO NOT EDIT MANUALLY.
 
-export const designTokens = {
-  paddingSM: {
+export const designTokens = 
+{
+  "paddingSM": 12,
+  "borderRadius": 8,
+  "Input": {
+    "controlPaddingHorizontal": 12,
+    "colorBgContainer": "#ffffff",
+    "colorBorder": "#e3e3e3",
+    "colorTextPlaceholder": "#00000040",
+    "colorPrimary": "#4a7cfe",
+    "colorText": "#000000e0",
+    "colorError": "#ff4d4f"
   },
-  borderRadius: {
+  "borderRadiusLG": 10,
+  "DatePicker": {
+    "marginXXS": 4,
+    "controlPaddingHorizontal": 12,
+    "contorlHeight": 32,
+    "colorTextDisabled": "#00000040",
+    "colorBorder": "#e3e3e3",
+    "colorBgContainer": "#ffffff",
+    "colorPrimary": "#4a7cfe",
+    "colorText": "#000000e0",
+    "colorBgElevated": "#ffffff",
+    "colorSplit": "#0000000f",
+    "colorTextDescription": "#00000073",
+    "colorTextLightSolid": "#ffffff"
   },
-  Input: {
-    controlPaddingHorizontal: '12',
-    colorBgContainer: '#ffffff',
-    colorBorder: '#e3e3e3',
-    colorTextPlaceholder: '#00000040',
-    colorPrimary: '#4a7cfe',
-    colorText: '#000000e0',
-    colorError: '#ff4d4f',
+  "Checkbox": {
+    "marginXS": 8,
+    "colorBorder": "#e3e3e3",
+    "colorBgContainer": "#ffffff",
+    "colorWhite": "#ffffff",
+    "colorPrimary": "#4a7cfe",
+    "colorText": "#000000e0",
+    "colorTextDisabled": "#00000040"
   },
-  borderRadiusLG: {
+  "Dropdown": {
+    "paddingXXS": 4,
+    "borderRadiusLG": 10,
+    "borderRadiusSM": 6,
+    "controlHeight": 32,
+    "marginXS": 8,
+    "controlPaddingHorizontal": 12,
+    "colorBgElevated": "#ffffff",
+    "colorText": "#000000e0",
+    "colorPrimary": "#4a7cfe",
+    "contrlItemBgActive": "#f0f7ff",
+    "controlItemBgHover": "#0000000a",
+    "controlItemBgActive": "#f0f7ff",
+    "colorError": "#ff4d4f"
   },
-  DatePicker: {
-    marginXXS: '4',
-    controlPaddingHorizontal: '12',
-    contorlHeight: '32',
-    colorTextDisabled: '#00000040',
-    colorBorder: '#e3e3e3',
-    colorBgContainer: '#ffffff',
-    colorPrimary: '#4a7cfe',
-    colorText: '#000000e0',
-    colorBgElevated: '#ffffff',
-    colorSplit: '#0000000f',
-    colorTextDescription: '#00000073',
-    colorTextLightSolid: '#ffffff',
+  "Table": {
+    "paddingXS": 8,
+    "borderRadiusLG": 10,
+    "colorSplit": "#0000000f",
+    "colorText": "#000000e0",
+    "colorTextDisabled": "#00000040",
+    "colorBgContainer": "#ffffff",
+    "colorFillAlter": "#00000005"
   },
-  Checkbox: {
-    marginXS: '8',
-    colorBorder: '#e3e3e3',
-    colorBgContainer: '#ffffff',
-    colorWhite: '#ffffff',
-    colorPrimary: '#4a7cfe',
-    colorText: '#000000e0',
-    colorTextDisabled: '#00000040',
+  "Transfer": {
+    "controlHeight": 32,
+    "PaddingSM": 12,
+    "controlItemBgActive": "#f0f7ff",
+    "controlItemBgHover": "#0000000a"
   },
-  Dropdown: {
-    paddingXXS: '4',
-    borderRadiusLG: '10',
-    borderRadiusSM: '6',
-    controlHeight: '32',
-    marginXS: '8',
-    controlPaddingHorizontal: '12',
-    colorBgElevated: '#ffffff',
-    colorText: '#000000e0',
-    colorPrimary: '#4a7cfe',
-    contrlItemBgActive: '#f0f7ff',
-    controlItemBgHover: '#0000000a',
-    controlItemBgActive: '#f0f7ff',
-    colorError: '#ff4d4f',
+  "Modal": {
+    "borderRadiusLG": 10,
+    "paddingContentHorizontalLG": 24,
+    "colorText": "#000000e0"
   },
-  Table: {
-    paddingXS: '8',
-    borderRadiusLG: '10',
-    colorSplit: '#0000000f',
-    colorText: '#000000e0',
-    colorTextDisabled: '#00000040',
-    colorBgContainer: '#ffffff',
-    colorFillAlter: '#00000005',
+  "colorTextSecondary": "#000000a6",
+  "colorBgContainer": "#ffffff",
+  "colorBgSecondary": "#f0f0f0",
+  "colorFillAlter": "#00000005",
+  "colorSplit": "#0000000f",
+  "colorIcon": "#00000073",
+  "colorTextTertiary": "#00000073",
+  "colorPrimaryBase": "#4a7cfe",
+  "Button": {
+    "colorPrimary": "#4a7cfe",
+    "colorPrimaryHover": "#739fff",
+    "colorPrimaryActive": "#345dd9",
+    "colorTextLightSolid": "#ffffff",
+    "colorBorder": "#e3e3e3",
+    "colorBgContainerDisabled": "#0000000a",
+    "colorTextDisabled": "#00000040",
+    "colorBgTextHover": "#0000000f"
   },
-  Transfer: {
-    controlHeight: '32',
-    PaddingSM: '12',
-    controlItemBgActive: '#f0f7ff',
-    controlItemBgHover: '#0000000a',
-  },
-  Modal: {
-    borderRadiusLG: '10',
-    paddingContentHorizontalLG: '24',
-    colorText: '#000000e0',
-  },
-  colorTextSecondary: {
-  },
-  colorBgContainer: {
-  },
-  colorBgSecondary: {
-  },
-  colorFillAlter: {
-  },
-  colorSplit: {
-  },
-  colorIcon: {
-  },
-  colorTextTertiary: {
-  },
-  colorPrimaryBase: {
-  },
-  Button: {
-    colorPrimary: '#4a7cfe',
-    colorPrimaryHover: '#739fff',
-    colorPrimaryActive: '#345dd9',
-    colorTextLightSolid: '#ffffff',
-    colorBorder: '#e3e3e3',
-    colorBgContainerDisabled: '#0000000a',
-    colorTextDisabled: '#00000040',
-    colorBgTextHover: '#0000000f',
-  },
-  Divider: {
-    colorSplit: '#0000000f',
-  },
+  "Divider": {
+    "colorSplit": "#0000000f"
+  }
 };
