@@ -18,7 +18,6 @@ const StyledFilterMenuItem = styled.div`
   border-radius: ${designTokens.Dropdown.borderRadiusSM}px;
   padding: 5px ${designTokens.Transfer.PaddingSM}px;
 
-
   &:hover {
     background-color: ${designTokens.Dropdown.controlItemBgHover};
   }
