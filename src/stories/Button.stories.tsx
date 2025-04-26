@@ -14,8 +14,7 @@ const meta: Meta<typeof Button> = {
   parameters: {
     docs: {
       description: {
-        component:
-          'Button은 서비스 전반에서 사용하는 기본 버튼 컴포넌트입니다. Ant Design의 Button을 기반으로 하며, 디자인 토큰을 이용해 색상 및 스타일을 일관되게 적용했습니다. 기본, 비활성화, 아이콘 추가, 로딩 등 다양한 상태를 지원합니다.',
+        component: 'Button은 기본 버튼 컴포넌트입니다.',
       },
     },
   },
