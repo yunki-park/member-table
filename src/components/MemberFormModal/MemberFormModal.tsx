@@ -43,7 +43,12 @@ export const MemberFormModal: React.FC<MemberFormModalProps> = ({
     };
 
     onSubmit(formattedValues);
+    resetModal();
+  };
+
+  const resetModal = () => {
     form.resetFields();
+    onCancel();
   };
 
   const CustomModal = styled(Modal)`
@@ -72,13 +77,13 @@ export const MemberFormModal: React.FC<MemberFormModalProps> = ({
       title={<Header>회원 추가</Header>}
       footer={
         <Footer>
-          <Button onClick={onCancel}>취소</Button>
+          <Button onClick={resetModal}>취소</Button>
           <Button type="primary" onClick={() => form.submit()}>
             추가
           </Button>
         </Footer>
       }
-      onCancel={onCancel}
+      onCancel={resetModal}
     >
       <Form
         form={form}

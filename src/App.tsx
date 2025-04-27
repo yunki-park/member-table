@@ -57,10 +57,10 @@ function App() {
     resetModal();
   };
 
-  // 모달 초기화
+  // 모달 관련 정보 초기화
   const resetModal = () => {
-    setOpen(false);
     setEditingMember(null);
+    setOpen(false);
   };
 
   // 회원 삭제
