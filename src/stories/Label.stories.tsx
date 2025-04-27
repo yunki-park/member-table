@@ -7,7 +7,7 @@ const meta: Meta<typeof Label> = {
   component: Label,
   tags: ['autodocs'],
   args: {
-    label: 'Input Label',
+    text: 'Input Label',
   },
   parameters: {
     docs: {
