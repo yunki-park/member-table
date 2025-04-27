@@ -23,7 +23,9 @@ export const Select: React.FC<SelectProps> = ({ item, value, onChange }) => {
   const { token } = theme.useToken();
 
   const StyledSelect = styled(AntdSelect<string>)`
-    min-width: 100px;
+    display: inline-block;
+    min-width: 80px;
+    max-width: 150px;
 
     &&:hover:not(.ant-select-focused):not(.ant-select-open)
       .ant-select-selector {
