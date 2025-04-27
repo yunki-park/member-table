@@ -24,6 +24,9 @@ export const MemberTable: React.FC<MemberTableProps> = ({
       {
         title: '이름',
         dataIndex: 'name',
+        width: 120,
+        minWidth: 80,
+        ellipsis: true,
         filters: Array.from(new Set(records.map((r) => r.name))).map(
           (name) => ({
             text: name,
@@ -35,6 +38,8 @@ export const MemberTable: React.FC<MemberTableProps> = ({
       {
         title: '주소',
         dataIndex: 'address',
+        minWidth: 200,
+        ellipsis: true,
         filters: Array.from(new Set(records.map((r) => r.address))).map(
           (address) => ({
             text: address,
@@ -47,6 +52,8 @@ export const MemberTable: React.FC<MemberTableProps> = ({
       {
         title: '메모',
         dataIndex: 'memo',
+        minWidth: 200,
+        ellipsis: true,
         filters: Array.from(new Set(records.map((r) => r.memo))).map(
           (memo) => ({
             text: memo,
@@ -59,6 +66,9 @@ export const MemberTable: React.FC<MemberTableProps> = ({
       {
         title: '가입일',
         dataIndex: 'joinDate',
+        minWidth: 80,
+        width: 200,
+        ellipsis: true,
         filters: Array.from(new Set(records.map((r) => r.joinDate))).map(
           (date) => ({
             text: date,
@@ -70,10 +80,12 @@ export const MemberTable: React.FC<MemberTableProps> = ({
       {
         title: '직업',
         dataIndex: 'job',
+        minWidth: 200,
         filters: Array.from(new Set(records.map((r) => r.job))).map((job) => ({
           text: job,
           value: job,
         })),
+        ellipsis: true,
         onFilter: (value, record) => record.job === value,
       },
       {
@@ -83,6 +95,9 @@ export const MemberTable: React.FC<MemberTableProps> = ({
           { text: '선택됨', value: true },
           { text: '선택 안함', value: false },
         ],
+        width: 150,
+        minWidth: 80,
+        ellipsis: true,
         onFilter: (value, record) => record.agreeToEmail === value,
         render: (agree: boolean) => (
           <div style={{ cursor: 'not-allowed' }}>
@@ -92,6 +107,7 @@ export const MemberTable: React.FC<MemberTableProps> = ({
       },
       {
         key: 'actions',
+        width: 48,
         render: (_, record) => (
           <Dropdown
             trigger={['click']}
@@ -134,6 +150,8 @@ export const MemberTable: React.FC<MemberTableProps> = ({
         showSizeChanger: false,
         position: ['bottomCenter'],
       }}
+      scroll={{ x: 'max-content' }}
+      tableLayout="fixed"
       rowSelection={{
         type: 'checkbox',
       }}
