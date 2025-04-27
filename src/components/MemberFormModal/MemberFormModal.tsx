@@ -1,6 +1,7 @@
 import React from 'react';
 import { Modal, Form, Input, DatePicker, Checkbox, Button, theme } from 'antd';
 import styled from '@emotion/styled';
+import dayjs from 'dayjs';
 
 import { Label } from '@/components/Label';
 import { Select } from '@/components/Select';
@@ -34,7 +35,14 @@ export const MemberFormModal: React.FC<MemberFormModalProps> = ({
   const { token } = theme.useToken();
 
   const handleFinish = (values: MemberWithoutKey) => {
-    onSubmit(values);
+    const formattedValues = {
+      ...values,
+      joinDate: dayjs.isDayjs(values.joinDate)
+        ? values.joinDate.format('YYYY-MM-DD')
+        : values.joinDate,
+    };
+
+    onSubmit(formattedValues);
     form.resetFields();
   };
 
