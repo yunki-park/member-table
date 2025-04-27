@@ -1,5 +1,6 @@
 import { Checkbox, Table } from 'antd';
 import type { TableColumnsType } from 'antd';
+import { MoreOutlined } from '@ant-design/icons';
 
 import { Member } from '@/models/member';
 import { initialMembers } from './initialMembers';
@@ -60,8 +61,14 @@ const columns: TableColumnsType<Member> = [
     ],
     onFilter: (value, record) => record.agreeToEmail === value,
     render: (agree: boolean) => (
-      <Checkbox checked={agree} style={{ pointerEvents: 'none' }} />
+      <div style={{ cursor: 'not-allowed' }}>
+        <Checkbox checked={agree} style={{ pointerEvents: 'none' }} />
+      </div>
     ),
+  },
+  {
+    key: 'actions',
+    render: () => <MoreOutlined style={{ cursor: 'pointer' }} />,
   },
 ];
 
@@ -71,7 +78,14 @@ export const MemberTable: React.FC = () => {
       columns={columns}
       dataSource={initialMembers}
       rowKey="name"
-      pagination={false}
+      pagination={{
+        pageSize: 10,
+        showSizeChanger: false,
+        position: ['bottomCenter'],
+      }}
+      rowSelection={{
+        type: 'checkbox',
+      }}
     />
   );
 };
