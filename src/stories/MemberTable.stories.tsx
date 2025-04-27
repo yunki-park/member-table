@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { MemberTable } from '@/components/MemberTable/MemberTable';
+import { initialMembers } from '@/constans/initialMembers';
 
 const meta: Meta<typeof MemberTable> = {
   title: 'Components/MemberTable',
@@ -16,4 +17,8 @@ const meta: Meta<typeof MemberTable> = {
 export default meta;
 type Story = StoryObj<typeof MemberTable>;
 
-export const Default: Story = {};
+export const Default: Story = {
+  args: {
+    records: initialMembers,
+  },
+};
