@@ -99,6 +99,7 @@ export const MemberFormModal: React.FC<MemberFormModalProps> = ({
         layout="vertical"
         onFinish={handleFinish}
         autoComplete="off"
+        requiredMark={false}
         style={{
           padding: `10px ${token.paddingContentHorizontalLG}px
                     20px ${token.paddingContentHorizontalLG}px`,
