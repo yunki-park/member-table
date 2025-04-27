@@ -12,12 +12,22 @@ interface MemberTableProps {
   onDelete: (key: React.Key) => void;
 }
 
+const EMPTY_STR = '__EMPTY__';
+
 export const MemberTable: React.FC<MemberTableProps> = ({
   records,
   onEdit,
   onDelete,
 }) => {
   const { token } = theme.useToken();
+
+  const createFilters = (key: keyof MemberRecord) => {
+    const values = Array.from(new Set(records.map((r) => r[key] ?? '')));
+    return values.map((v) => ({
+      text: v === '' ? '(공백)' : String(v),
+      value: v === '' ? EMPTY_STR : v,
+    }));
+  };
 
   const columns = useMemo<TableColumnsType<MemberRecord>>(
     () => [
@@ -40,14 +50,14 @@ export const MemberTable: React.FC<MemberTableProps> = ({
         dataIndex: 'address',
         minWidth: 200,
         ellipsis: true,
-        filters: Array.from(new Set(records.map((r) => r.address))).map(
-          (address) => ({
-            text: address,
-            value: address,
-          }),
-        ),
-        onFilter: (value, record) =>
-          record.address?.includes(value as string) ?? false,
+        filters: createFilters('address'),
+        onFilter: (value, record) => {
+          const target = record.address ?? '';
+          if (value === '__EMPTY__') {
+            return target === '';
+          }
+          return target === value;
+        },
       },
       {
         title: '메모',
@@ -60,8 +70,13 @@ export const MemberTable: React.FC<MemberTableProps> = ({
             value: memo,
           }),
         ),
-        onFilter: (value, record) =>
-          record.memo?.includes(value as string) ?? false,
+        onFilter: (value, record) => {
+          const target = record.memo ?? '';
+          if (value === '__EMPTY__') {
+            return target === '';
+          }
+          return target === value;
+        },
       },
       {
         title: '가입일',
