@@ -11,6 +11,7 @@ interface MemberFormModalProps {
   open: boolean;
   onCancel: () => void;
   onSubmit: (values: MemberWithoutKey) => void;
+  initialValues?: MemberWithoutKey;
 }
 
 /**
@@ -27,6 +28,7 @@ export const MemberFormModal: React.FC<MemberFormModalProps> = ({
   open,
   onCancel,
   onSubmit,
+  initialValues,
 }) => {
   const [form] = Form.useForm<MemberWithoutKey>();
   const { token } = theme.useToken();
@@ -72,6 +74,7 @@ export const MemberFormModal: React.FC<MemberFormModalProps> = ({
     >
       <Form
         form={form}
+        initialValues={initialValues}
         layout="vertical"
         onFinish={handleFinish}
         autoComplete="off"

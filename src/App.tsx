@@ -6,31 +6,60 @@ import { MemberRecord, MemberWithoutKey } from '@/models/member';
 import { MemberTable } from '@/components/MemberTable/MemberTable';
 import { MemberFormModal } from '@/components/MemberFormModal/MemberFormModal';
 import { useRecordStorage } from '@/hooks/useRecordStorage';
-import { generateKey } from '@/utils/keyUtil';
+import { generateKey, omitKey } from '@/utils/keyUtil';
 
 function App() {
   const { token } = theme.useToken();
   const { records, save } = useRecordStorage();
-  const [open, setOpen] = useState(false);
 
-  const handleAddRecord = () => {
+  const [open, setOpen] = useState(false);
+  const [editingMember, setEditingMember] = useState<MemberRecord | null>(null);
+
+  // 모달 열기
+  const handleOpenModal = () => {
     setOpen(true);
+  };
+
+  // 회원 수정 버튼 클릭 시
+  const handleEdit = (member: MemberRecord) => {
+    setEditingMember(member);
+
+    handleOpenModal();
   };
 
   // 회원 생성 및 모달 닫기
   const handleSubmit = (member: MemberWithoutKey) => {
-    const record: MemberRecord = {
-      ...member,
-      key: generateKey(),
-    };
-    save([...records, record]);
+    if (editingMember) {
+      // 1. 수정 모드
+      const updatedRecords = records.map((record) =>
+        record.key === editingMember.key
+          ? { ...member, key: editingMember.key }
+          : record,
+      );
 
-    setOpen(false);
+      save(updatedRecords);
+    } else {
+      // 2. 추가 모드
+      const newMember: MemberRecord = {
+        ...member,
+        key: generateKey(),
+      };
+
+      save([...records, newMember]);
+    }
+
+    resetModal();
   };
 
   // 모달 닫기
   const handleCancel = () => {
+    resetModal();
+  };
+
+  // 모달 초기화
+  const resetModal = () => {
     setOpen(false);
+    setEditingMember(null);
   };
 
   // 회원 삭제
@@ -38,21 +67,6 @@ function App() {
     const updated = records.filter((record) => record.key !== key);
     save(updated);
   };
-
-  // const handleAddRecord = () => {
-  //   const newRecord = [
-  //     ...records,
-  //     {
-  //       name: '박윤기',
-  //       address: '서울시 용산구',
-  //       memo: '프론트엔드 지원자',
-  //       joinDate: '2025-04-25',
-  //       job: '개발자',
-  //       agreeToEmail: false,
-  //     },
-  //   ];
-  //   save(newRecord);
-  // };
 
   return (
     <div
@@ -85,7 +99,7 @@ function App() {
           type="primary"
           icon={<PlusOutlined />}
           style={{ padding: '0px 12px' }}
-          onClick={handleAddRecord}
+          onClick={handleOpenModal}
         >
           추가
         </Button>
@@ -100,7 +114,11 @@ function App() {
           boxSizing: 'border-box',
         }}
       >
-        <MemberTable records={records} onDelete={handleDelete} />
+        <MemberTable
+          records={records}
+          onEdit={handleEdit}
+          onDelete={handleDelete}
+        />
       </div>
 
       {/* 모달 */}
@@ -108,6 +126,7 @@ function App() {
         open={open}
         onCancel={handleCancel}
         onSubmit={handleSubmit}
+        initialValues={editingMember ? omitKey(editingMember) : undefined}
       />
     </div>
   );

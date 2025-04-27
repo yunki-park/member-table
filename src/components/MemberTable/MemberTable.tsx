@@ -1,4 +1,4 @@
-import { Checkbox, Dropdown, Table } from 'antd';
+import { Checkbox, Dropdown, Table, theme } from 'antd';
 import type { TableColumnsType } from 'antd';
 import { MoreOutlined } from '@ant-design/icons';
 
@@ -6,13 +6,17 @@ import { MemberRecord } from '@/models/member';
 
 interface MemberTableProps {
   records: MemberRecord[];
+  onEdit: (member: MemberRecord) => void;
   onDelete: (key: React.Key) => void;
 }
 
 export const MemberTable: React.FC<MemberTableProps> = ({
   records,
+  onEdit,
   onDelete,
 }) => {
+  const { token } = theme.useToken();
+
   const columns: TableColumnsType<MemberRecord> = [
     {
       title: '이름',
@@ -85,11 +89,15 @@ export const MemberTable: React.FC<MemberTableProps> = ({
               {
                 key: 'edit',
                 label: '수정',
-                onClick: () => {},
+                onClick: () => {
+                  onEdit(record);
+                },
               },
               {
                 key: 'delete',
-                label: <span style={{ color: 'red' }}>삭제</span>,
+                label: (
+                  <span style={{ color: `${token.colorError}` }}>삭제</span>
+                ),
                 onClick: () => {
                   onDelete(record.key);
                 },
