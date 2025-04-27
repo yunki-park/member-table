@@ -1,8 +1,6 @@
 import React from 'react';
-import { Table } from 'antd';
+import { Checkbox, Table } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
-
-import { Checkbox } from '../Checkbox';
 
 export interface Member {
   name: string;
@@ -43,9 +41,7 @@ const columns: ColumnsType<Member> = [
     title: '이메일 수신 동의',
     dataIndex: 'agreeToEmail',
     key: 'agreeToEmail',
-    render: (agree: boolean) => (
-      <Checkbox status={agree ? 'active' : 'inactive'} onChange={() => {}} />
-    ),
+    render: (agree: boolean) => <Checkbox checked={agree} disabled />,
   },
 ];
 
