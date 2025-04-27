@@ -5,12 +5,12 @@
  */
 
 import { StorageInterface } from './StorageInterface';
-import { RecordData } from '../models/record';
+import { MemberRecord } from '@/models/member';
 
 const STORAGE_KEY = 'records';
 
 export class LocalStorageProvider implements StorageInterface {
-  getRecords(): RecordData[] {
+  getRecords(): MemberRecord[] {
     try {
       const raw = localStorage.getItem(STORAGE_KEY);
       return raw ? JSON.parse(raw) : [];
@@ -20,7 +20,7 @@ export class LocalStorageProvider implements StorageInterface {
     }
   }
 
-  saveRecords(records: RecordData[]): void {
+  saveRecords(records: MemberRecord[]): void {
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(records));
     } catch (e) {

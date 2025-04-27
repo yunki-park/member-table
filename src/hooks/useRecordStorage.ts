@@ -1,12 +1,11 @@
 import { useEffect, useState } from 'react';
 
-import { RecordData } from '../models/record';
-import { StorageInterface } from '../storage/StorageInterface';
-import { LocalStorageProvider } from '../storage/LocalStorageProvider';
-import { InMemoryProvider } from '../storage/InMemoryProvider';
-import { STORAGE_MODE } from '../constans/storageMode';
-import { initialMembers } from '@/components/MemberTable/initialMembers';
-import { convertMembersToRecordDatas } from '@/utils/convertUtil';
+import { MemberRecord } from '@/models/member';
+import { StorageInterface } from '@/storage/StorageInterface';
+import { LocalStorageProvider } from '@/storage/LocalStorageProvider';
+import { InMemoryProvider } from '@/storage/InMemoryProvider';
+import { STORAGE_MODE } from '@/constans/storageMode';
+import { initialMembers } from '@/constans/initialMembers';
 
 const storageMode = import.meta.env.VITE_STORAGE ?? STORAGE_MODE.LOCAL_STORAGE;
 const isLocalStorageMode = storageMode === STORAGE_MODE.LOCAL_STORAGE;
@@ -20,7 +19,7 @@ function getStorage(): StorageInterface {
 const storage = getStorage();
 
 export function useRecordStorage() {
-  const [records, setRecords] = useState<RecordData[]>([]);
+  const [records, setRecords] = useState<MemberRecord[]>([]);
 
   useEffect(() => {
     const loaded = storage.getRecords();
@@ -28,11 +27,11 @@ export function useRecordStorage() {
     if (loaded.length > 0) {
       setRecords(loaded);
     } else if (!isLocalStorageMode) {
-      setRecords(convertMembersToRecordDatas(initialMembers));
+      setRecords(initialMembers);
     }
   }, []);
 
-  const save = (newRecords: RecordData[]) => {
+  const save = (newRecords: MemberRecord[]) => {
     storage.saveRecords(newRecords);
     setRecords(newRecords);
   };

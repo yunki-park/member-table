@@ -62,10 +62,7 @@ export const Select: React.FC<SelectProps> = ({ item, current, onChange }) => {
         onChange(value);
       }}
       placeholder={item.label}
-      options={item.options?.map((option) => ({
-        label: option,
-        value: option,
-      }))}
+      options={item.options}
     />
   );
 };

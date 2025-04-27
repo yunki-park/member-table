@@ -1,9 +1,9 @@
 /**
  * 레코드 저장소 인터페이스
  */
-import { RecordData } from '../models/record';
+import { MemberRecord } from '@/models/member';
 
 export interface StorageInterface {
-  getRecords(): RecordData[];
-  saveRecords(records: RecordData[]): void;
+  getRecords(): MemberRecord[];
+  saveRecords(records: MemberRecord[]): void;
 }

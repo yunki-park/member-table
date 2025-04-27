@@ -28,7 +28,11 @@ const item: Field = {
   type: 'select',
   required: false,
 
-  options: ['개발자', 'PO', '디자이너'],
+  options: [
+    { label: '개발자', value: '개발자' },
+    { label: 'PO', value: 'PO' },
+    { label: '디자이너', value: '디자이너' },
+  ],
 };
 
 export const Default: Story = {

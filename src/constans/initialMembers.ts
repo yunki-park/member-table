@@ -1,7 +1,8 @@
-import { Member } from '@/models/member';
+import { MemberRecord } from '@/models/member';
 
-export const initialMembers: Member[] = [
+export const initialMembers: MemberRecord[] = [
   {
+    key: '1',
     name: 'John Doe',
     address: '서울 강남구',
     memo: '외국인',
@@ -10,6 +11,7 @@ export const initialMembers: Member[] = [
     agreeToEmail: true,
   },
   {
+    key: '2',
     name: 'Foo Bar',
     address: '서울 서초구',
     memo: '한국인',
