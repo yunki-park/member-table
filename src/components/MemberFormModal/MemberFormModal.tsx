@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Modal, Form, Input, DatePicker, Checkbox, Button, theme } from 'antd';
 import styled from '@emotion/styled';
 import dayjs from 'dayjs';
@@ -33,6 +33,14 @@ export const MemberFormModal: React.FC<MemberFormModalProps> = ({
 }) => {
   const [form] = Form.useForm<MemberFormValues>();
   const { token } = theme.useToken();
+
+  useEffect(() => {
+    if (initialValues) {
+      form.setFieldsValue(initialValues);
+    } else {
+      form.resetFields();
+    }
+  }, [initialValues, form]);
 
   const handleFinish = (values: MemberFormValues) => {
     const formattedValues: MemberWithoutKey = {
