@@ -23,6 +23,11 @@
 
 export type FieldType = 'text' | 'textarea' | 'date' | 'select' | 'checkbox';
 
+export interface FieldOption {
+  value: string;
+  label: string;
+}
+
 export interface Field {
   // common
   key: string;
@@ -31,5 +36,49 @@ export interface Field {
   required: boolean;
 
   // select 타입 옵션 목록
-  options?: string[];
+  options?: FieldOption[];
 }
+
+export const fieldItems: Field[] = [
+  {
+    key: 'name',
+    label: '이름',
+    type: 'text',
+    required: true,
+  },
+  {
+    key: 'address',
+    label: '주소',
+    type: 'text',
+    required: false,
+  },
+  {
+    key: 'memo',
+    label: '메모',
+    type: 'textarea',
+    required: false,
+  },
+  {
+    key: 'joinDate',
+    label: '가입일',
+    type: 'date',
+    required: true,
+  },
+  {
+    key: 'job',
+    label: '직업',
+    type: 'select',
+    required: false,
+    options: [
+      { value: '개발자', label: '개발자' },
+      { value: 'PO', label: 'PO' },
+      { value: '디자이너', label: '디자이너' },
+    ],
+  },
+  {
+    key: 'agreeToEmail',
+    label: '이메일 수신 동의',
+    type: 'checkbox',
+    required: false,
+  },
+];
