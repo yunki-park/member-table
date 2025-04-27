@@ -38,35 +38,35 @@ const item: Field = {
 export const Default: Story = {
   name: 'Default',
   render: function SelectDefault(args) {
-    const [{ current }, updateArgs] = useArgs();
+    const [{ value }, updateArgs] = useArgs();
 
     const handleChange = (value: string) => {
-      updateArgs({ current: value });
+      updateArgs({ value });
     };
 
-    return <Select {...args} current={current} onChange={handleChange} />;
+    return <Select {...args} value={value} onChange={handleChange} />;
   },
   args: {
     item,
-    current: '',
+    value: '',
   },
 };
 
 export const OptionSelected: Story = {
   name: 'Filled',
   render: function SelectOptionSelected(args) {
-    const [{ current }, updateArgs] = useArgs();
+    const [{ value }, updateArgs] = useArgs();
     return (
       <Select
         {...args}
-        current={current}
-        onChange={(value) => updateArgs({ current: value })}
+        value={value}
+        onChange={(value) => updateArgs({ value })}
       />
     );
   },
   args: {
     item,
-    current: '개발자',
+    value: '개발자',
   },
   parameters: {
     docs: {

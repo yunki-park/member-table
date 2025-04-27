@@ -128,7 +128,6 @@ export const MemberFormModal: React.FC<MemberFormModalProps> = ({
                   required: field.required,
                   options: field.options || [],
                 }}
-                current=""
                 onChange={() => {}}
               />
             )}

@@ -6,7 +6,7 @@ import type { Field } from '@/models/field';
 
 export interface SelectProps {
   item: Field;
-  current: string;
+  value?: string;
   onChange: (value: string) => void;
 }
 
@@ -19,7 +19,7 @@ export interface SelectProps {
  * </div>
  */
 
-export const Select: React.FC<SelectProps> = ({ item, current, onChange }) => {
+export const Select: React.FC<SelectProps> = ({ item, value, onChange }) => {
   const { token } = theme.useToken();
 
   const StyledSelect = styled(AntdSelect<string>)`
@@ -57,10 +57,8 @@ export const Select: React.FC<SelectProps> = ({ item, current, onChange }) => {
 
   return (
     <StyledSelect
-      value={current}
-      onChange={(value) => {
-        onChange(value);
-      }}
+      value={value}
+      onChange={onChange}
       placeholder={item.label}
       options={item.options}
     />
