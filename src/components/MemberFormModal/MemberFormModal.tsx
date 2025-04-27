@@ -93,12 +93,30 @@ export const MemberFormModal: React.FC<MemberFormModalProps> = ({
                 required: field.required,
                 message: `${field.label}을(를) 입력해 주세요.`,
               },
+              ...(field.type === 'text'
+                ? [
+                    {
+                      max: 20,
+                      message: `${field.label}은(는) 최대 20자까지 입력할 수 있습니다.`,
+                    },
+                  ]
+                : []),
+              ...(field.type === 'textarea'
+                ? [
+                    {
+                      max: 50,
+                      message: `${field.label}은(는) 최대 50자까지 입력할 수 있습니다.`,
+                    },
+                  ]
+                : []),
             ]}
             valuePropName={field.type === 'checkbox' ? 'checked' : 'value'}
           >
-            {field.type === 'text' && <Input placeholder="Input" />}
+            {field.type === 'text' && (
+              <Input placeholder="Input" maxLength={20} />
+            )}
             {field.type === 'textarea' && (
-              <Input.TextArea placeholder="TextArea" />
+              <Input.TextArea placeholder="TextArea" maxLength={50} />
             )}
             {field.type === 'date' && <DatePicker style={{ width: '150px' }} />}
             {field.type === 'select' && (
