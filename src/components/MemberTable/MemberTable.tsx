@@ -121,6 +121,9 @@ export const MemberTable: React.FC<MemberTableProps> = ({
                   },
                 },
                 {
+                  type: 'divider',
+                },
+                {
                   key: 'delete',
                   label: (
                     <span style={{ color: `${token.colorError}` }}>삭제</span>
@@ -130,6 +133,7 @@ export const MemberTable: React.FC<MemberTableProps> = ({
                   },
                 },
               ],
+              style: { width: 170 },
             }}
           >
             <MoreOutlined style={{ cursor: 'pointer' }} />
