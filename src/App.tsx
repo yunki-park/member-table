@@ -4,8 +4,8 @@ import { PlusOutlined } from '@ant-design/icons';
 import dayjs from 'dayjs';
 
 import { MemberRecord, MemberWithoutKey } from '@/models/member';
-import { MemberTable } from '@/components/MemberTable/MemberTable';
-import { MemberFormModal } from '@/components/MemberFormModal/MemberFormModal';
+import { MemberTable } from '@/components/MemberTable';
+import { MemberFormModal } from '@/components/MemberFormModal';
 import { useRecordStorage } from '@/hooks/useRecordStorage';
 import { generateKey, omitKey } from '@/utils/keyUtil';
 

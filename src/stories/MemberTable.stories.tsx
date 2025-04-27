@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { MemberTable } from '@/components/MemberTable/MemberTable';
+import { MemberTable } from '@/components/MemberTable';
 import { initialMembers } from '@/constans/initialMembers';
 
 const meta: Meta<typeof MemberTable> = {
