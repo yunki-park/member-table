@@ -44,6 +44,7 @@ function App() {
           top: 0,
           zIndex: 10,
           padding: '8px 14px',
+          backgroundColor: token.colorBgContainer,
         }}
       >
         {/* 타이틀 */}
