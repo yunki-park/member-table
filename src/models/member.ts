@@ -1,3 +1,5 @@
+import { Dayjs } from 'dayjs';
+
 export interface MemberRecord {
   key: string;
 
@@ -10,3 +12,7 @@ export interface MemberRecord {
 }
 
 export type MemberWithoutKey = Omit<MemberRecord, 'key'>;
+
+export type MemberFormValues = Omit<MemberWithoutKey, 'joinDate'> & {
+  joinDate: string | Dayjs;
+};

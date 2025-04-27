@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Button, theme } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
+import dayjs from 'dayjs';
 
 import { MemberRecord, MemberWithoutKey } from '@/models/member';
 import { MemberTable } from '@/components/MemberTable/MemberTable';
@@ -126,7 +127,14 @@ function App() {
         open={open}
         onCancel={handleCancel}
         onSubmit={handleSubmit}
-        initialValues={editingMember ? omitKey(editingMember) : undefined}
+        initialValues={
+          editingMember
+            ? {
+                ...omitKey(editingMember),
+                joinDate: dayjs(editingMember.joinDate),
+              }
+            : undefined
+        }
       />
     </div>
   );

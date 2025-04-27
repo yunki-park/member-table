@@ -6,13 +6,13 @@ import dayjs from 'dayjs';
 import { Label } from '@/components/Label';
 import { Select } from '@/components/Select';
 import { fieldItems } from '@/models/field';
-import { MemberWithoutKey } from '@/models/member';
+import { MemberFormValues, MemberWithoutKey } from '@/models/member';
 
 interface MemberFormModalProps {
   open: boolean;
   onCancel: () => void;
   onSubmit: (values: MemberWithoutKey) => void;
-  initialValues?: MemberWithoutKey;
+  initialValues?: MemberFormValues;
 }
 
 /**
@@ -31,11 +31,11 @@ export const MemberFormModal: React.FC<MemberFormModalProps> = ({
   onSubmit,
   initialValues,
 }) => {
-  const [form] = Form.useForm<MemberWithoutKey>();
+  const [form] = Form.useForm<MemberFormValues>();
   const { token } = theme.useToken();
 
-  const handleFinish = (values: MemberWithoutKey) => {
-    const formattedValues = {
+  const handleFinish = (values: MemberFormValues) => {
+    const formattedValues: MemberWithoutKey = {
       ...values,
       joinDate: dayjs.isDayjs(values.joinDate)
         ? values.joinDate.format('YYYY-MM-DD')
