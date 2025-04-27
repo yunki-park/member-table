@@ -1,47 +1,67 @@
-import React from 'react';
 import { Checkbox, Table } from 'antd';
-import type { ColumnsType } from 'antd/es/table';
+import type { TableColumnsType } from 'antd';
 
-export interface Member {
-  name: string;
-  address: string;
-  memo: string;
-  joinDate: string;
-  job: string;
-  agreeToEmail: boolean;
-}
+import { Member } from '@/models/member';
+import { initialMembers } from './initialMembers';
 
-const columns: ColumnsType<Member> = [
+const columns: TableColumnsType<Member> = [
   {
     title: '이름',
     dataIndex: 'name',
-    key: 'name',
+    filters: [
+      { text: 'John Doe', value: 'John Doe' },
+      { text: 'Foo Bar', value: 'Foo Bar' },
+    ],
+    onFilter: (value, record) => record.name.includes(String(value)),
   },
   {
     title: '주소',
     dataIndex: 'address',
-    key: 'address',
+    filters: [
+      { text: '서울 강남구', value: '서울 강남구' },
+      { text: '서울 서초구', value: '서울 서초구' },
+    ],
+    onFilter: (value, record) =>
+      record.address?.includes(String(value)) ?? false,
   },
   {
     title: '메모',
     dataIndex: 'memo',
-    key: 'memo',
+    filters: [
+      { text: '외국인', value: '외국인' },
+      { text: '한국인', value: '한국인' },
+    ],
+    onFilter: (value, record) => record.memo?.includes(String(value)) ?? false,
   },
   {
     title: '가입일',
     dataIndex: 'joinDate',
-    key: 'joinDate',
+    filters: [
+      { text: '2024-10-01', value: '2024-10-01' },
+      { text: '2024-10-02', value: '2024-10-02' },
+    ],
+    onFilter: (value, record) => record.joinDate.includes(String(value)),
   },
   {
     title: '직업',
     dataIndex: 'job',
-    key: 'job',
+    filters: [
+      { text: '개발자', value: '개발자' },
+      { text: 'PO', value: 'PO' },
+    ],
+    onFilter: (value, record) => record.job === value,
   },
   {
     title: '이메일 수신 동의',
     dataIndex: 'agreeToEmail',
-    key: 'agreeToEmail',
-    render: (agree: boolean) => <Checkbox checked={agree} disabled />,
+    filters: [
+      { text: '선택됨', value: true },
+      { text: '선택 안함', value: false },
+    ],
+    onFilter: (value, record) => record.agreeToEmail === value,
+    render: (agree: boolean) => (
+      <Checkbox checked={agree} style={{ pointerEvents: 'none' }} />
+    ),
   },
 ];
 
@@ -49,7 +69,7 @@ export const MemberTable: React.FC = () => {
   return (
     <Table<Member>
       columns={columns}
-      dataSource={[]}
+      dataSource={initialMembers}
       rowKey="name"
       pagination={false}
     />
