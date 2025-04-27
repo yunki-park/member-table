@@ -3,7 +3,10 @@ import type { TableColumnsType } from 'antd';
 import { MoreOutlined } from '@ant-design/icons';
 
 import { Member } from '@/models/member';
-import { initialMembers } from './initialMembers';
+
+interface MemberTableProps {
+  records: Member[];
+}
 
 const columns: TableColumnsType<Member> = [
   {
@@ -13,7 +16,7 @@ const columns: TableColumnsType<Member> = [
       { text: 'John Doe', value: 'John Doe' },
       { text: 'Foo Bar', value: 'Foo Bar' },
     ],
-    onFilter: (value, record) => record.name.includes(String(value)),
+    onFilter: (value, record) => record.name.includes(value as string),
   },
   {
     title: '주소',
@@ -23,7 +26,7 @@ const columns: TableColumnsType<Member> = [
       { text: '서울 서초구', value: '서울 서초구' },
     ],
     onFilter: (value, record) =>
-      record.address?.includes(String(value)) ?? false,
+      record.address?.includes(value as string) ?? false,
   },
   {
     title: '메모',
@@ -32,7 +35,8 @@ const columns: TableColumnsType<Member> = [
       { text: '외국인', value: '외국인' },
       { text: '한국인', value: '한국인' },
     ],
-    onFilter: (value, record) => record.memo?.includes(String(value)) ?? false,
+    onFilter: (value, record) =>
+      record.memo?.includes(value as string) ?? false,
   },
   {
     title: '가입일',
@@ -41,7 +45,7 @@ const columns: TableColumnsType<Member> = [
       { text: '2024-10-01', value: '2024-10-01' },
       { text: '2024-10-02', value: '2024-10-02' },
     ],
-    onFilter: (value, record) => record.joinDate.includes(String(value)),
+    onFilter: (value, record) => record.joinDate.includes(value as string),
   },
   {
     title: '직업',
@@ -72,11 +76,11 @@ const columns: TableColumnsType<Member> = [
   },
 ];
 
-export const MemberTable: React.FC = () => {
+export const MemberTable: React.FC<MemberTableProps> = ({ records }) => {
   return (
     <Table<Member>
       columns={columns}
-      dataSource={initialMembers}
+      dataSource={records}
       rowKey="name"
       pagination={{
         pageSize: 10,
