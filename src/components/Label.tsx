@@ -1,30 +1,20 @@
 import React from 'react';
-import styled from '@emotion/styled';
-
-import { designTokens } from '@/styles/design-tokens';
+import { theme } from 'antd';
 
 interface LabelProps {
-  label: string;
+  text: string;
   required?: boolean;
 }
 
-const StyledLabel = styled.label`
-  display: inline-block;
-  font-size: 16px;
-  font-weight: 600;
-  color: ${designTokens.colorTextSecondary};
-`;
+export const Label: React.FC<LabelProps> = ({ text, required }) => {
+  const { token } = theme.useToken();
 
-const RequiredMark = styled.span`
-  color: ${designTokens.Input.colorError};
-  margin-left: 4px;
-`;
-
-export const Label: React.FC<LabelProps> = ({ label, required }) => {
   return (
-    <StyledLabel>
-      {label}
-      {required && <RequiredMark>*</RequiredMark>}
-    </StyledLabel>
+    <label>
+      {text}
+      {required && (
+        <span style={{ color: token.colorError, marginLeft: `4px` }}>*</span>
+      )}
+    </label>
   );
 };
