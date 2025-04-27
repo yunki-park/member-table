@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import { theme } from 'antd';
 
-import { designTokens } from '@/styles/design-tokens';
-import { FilterMenuItem } from '@/components/Filter/FilterMenuItem';
+import { FilterMenuItem } from './FilterMenuItem';
 
 export interface FilterProps {
   options: string[];
@@ -10,22 +10,23 @@ export interface FilterProps {
   onChange: (selected: string[]) => void;
 }
 
-const FilterWrapper = styled.div`
-  width: 150px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  background-color: ${designTokens.colorBgContainer};
-  border-radius: ${designTokens.Dropdown.borderRadiusSM}px;
-  padding: ${designTokens.Table.paddingXS}px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-`;
-
 export const Filter: React.FC<FilterProps> = ({
   options,
   selected,
   onChange,
 }) => {
+  const { token } = theme.useToken();
+
+  const FilterWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+    gap: ${token.marginXS}px;
+    padding: ${token.paddingXS}px;
+    border-radius: ${token.borderRadiusLG}px;
+    box-shadow: ${token.boxShadow};
+  `;
+
   const handleToggle = (value: string) => {
     if (selected.includes(value)) {
       onChange(selected.filter((v) => v !== value));
